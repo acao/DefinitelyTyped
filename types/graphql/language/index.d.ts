@@ -66,6 +66,7 @@ export {
     EnumTypeDefinitionNode,
     EnumValueDefinitionNode,
     InputObjectTypeDefinitionNode,
+    InputUnionTypeDefinitionNode,
     DirectiveDefinitionNode,
     TypeSystemExtensionNode,
     SchemaExtensionNode,
@@ -76,6 +77,7 @@ export {
     UnionTypeExtensionNode,
     EnumTypeExtensionNode,
     InputObjectTypeExtensionNode,
+    InputUnionTypeExtensionNode
 } from "./ast";
 
 export {

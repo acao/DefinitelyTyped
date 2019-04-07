@@ -31,6 +31,7 @@ type _Kind = {
     ENUM: "EnumValue";
     LIST: "ListValue";
     OBJECT: "ObjectValue";
+    INPUT_UNION: "InputUnionValue"
     OBJECT_FIELD: "ObjectField";
 
     // Directives
@@ -55,6 +56,7 @@ type _Kind = {
     ENUM_TYPE_DEFINITION: "EnumTypeDefinition";
     ENUM_VALUE_DEFINITION: "EnumValueDefinition";
     INPUT_OBJECT_TYPE_DEFINITION: "InputObjectTypeDefinition";
+    INPUT_UNION_TYPE_DEFINITION: "InputUnionTypeDefinition";
 
     // Directive Definitions
     DIRECTIVE_DEFINITION: "DirectiveDefinition";
@@ -69,6 +71,7 @@ type _Kind = {
     UNION_TYPE_EXTENSION: "UnionTypeExtension";
     ENUM_TYPE_EXTENSION: "EnumTypeExtension";
     INPUT_OBJECT_TYPE_EXTENSION: "InputObjectTypeExtension";
+    INPUT_UNION_TYPE_EXTENSION: "InputUnionTypeExtension";
 };
 
 /**

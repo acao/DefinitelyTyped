@@ -112,6 +112,7 @@ export type ASTNode =
     | InputValueDefinitionNode
     | InterfaceTypeDefinitionNode
     | UnionTypeDefinitionNode
+    | InputUnionTypeDefinitionNode
     | EnumTypeDefinitionNode
     | EnumValueDefinitionNode
     | InputObjectTypeDefinitionNode
@@ -160,6 +161,7 @@ export interface ASTKindToNode {
     InputValueDefinition: InputValueDefinitionNode;
     InterfaceTypeDefinition: InterfaceTypeDefinitionNode;
     UnionTypeDefinition: UnionTypeDefinitionNode;
+    InputUnionTypeDefinition: InputUnionTypeDefinitionNode;
     EnumTypeDefinition: EnumTypeDefinitionNode;
     EnumValueDefinition: EnumValueDefinitionNode;
     InputObjectTypeDefinition: InputObjectTypeDefinitionNode;
@@ -399,7 +401,8 @@ export type TypeDefinitionNode =
     | InterfaceTypeDefinitionNode
     | UnionTypeDefinitionNode
     | EnumTypeDefinitionNode
-    | InputObjectTypeDefinitionNode;
+    | InputObjectTypeDefinitionNode
+    | InputUnionTypeDefinitionNode;
 
 export interface ScalarTypeDefinitionNode {
     readonly kind: "ScalarTypeDefinition";
@@ -483,6 +486,16 @@ export interface InputObjectTypeDefinitionNode {
     readonly fields?: ReadonlyArray<InputValueDefinitionNode>;
 }
 
+export interface InputUnionTypeDefinitionNode {
+    readonly kind: "InputUnionTypeDefinition";
+    readonly loc?: Location;
+    readonly description?: StringValueNode;
+    readonly name: NameNode;
+    readonly directives?: ReadonlyArray<DirectiveNode>;
+    readonly default?: TypeNode;
+    readonly types?: ReadonlyArray<NamedTypeNode>;
+}
+
 // Directive Definitions
 
 export interface DirectiveDefinitionNode {
@@ -513,6 +526,7 @@ export type TypeExtensionNode =
     | InterfaceTypeExtensionNode
     | UnionTypeExtensionNode
     | EnumTypeExtensionNode
+    | InputUnionTypeDefinitionNode
     | InputObjectTypeExtensionNode;
 
 export interface ScalarTypeExtensionNode {
@@ -541,6 +555,14 @@ export interface InterfaceTypeExtensionNode {
 
 export interface UnionTypeExtensionNode {
     readonly kind: "UnionTypeExtension";
+    readonly loc?: Location;
+    readonly name: NameNode;
+    readonly directives?: ReadonlyArray<DirectiveNode>;
+    readonly types?: ReadonlyArray<NamedTypeNode>;
+}
+
+export interface InputUnionTypeExtensionNode {
+    readonly kind: "InputUnionTypeExtension";
     readonly loc?: Location;
     readonly name: NameNode;
     readonly directives?: ReadonlyArray<DirectiveNode>;
